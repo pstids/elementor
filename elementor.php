@@ -31,26 +31,26 @@ define( 'ELEMENTOR_VERSION', '2.0.8' );
 define( 'ELEMENTOR_PREVIOUS_STABLE_VERSION', '1.9.8' );
 
 define( 'ELEMENTOR__FILE__', __FILE__ );
-define( 'ELEMENTOR_PLUGIN_BASE', plugin_basename( ELEMENTOR__FILE__ ) );
-define( 'ELEMENTOR_PATH', plugin_dir_path( ELEMENTOR__FILE__ ) );
+define( 'ELEMENTOR_PLUGIN_BASE', 'elementor/elementor.php' );
+define( 'ELEMENTOR_PATH', get_template_directory() . '/plugins/elementor/' );
 
 if ( defined( 'ELEMENTOR_TESTS' ) && ELEMENTOR_TESTS ) {
-	define( 'ELEMENTOR_URL', 'file://' . ELEMENTOR_PATH );
+    define( 'ELEMENTOR_URL', 'file://' . ELEMENTOR_PATH );
 } else {
-	define( 'ELEMENTOR_URL', plugins_url( '/', ELEMENTOR__FILE__ ) );
+    define( 'ELEMENTOR_URL', get_template_directory_uri() . '/plugins/elementor/' );
 }
 
-define( 'ELEMENTOR_MODULES_PATH', plugin_dir_path( ELEMENTOR__FILE__ ) . '/modules' );
+define( 'ELEMENTOR_MODULES_PATH', ELEMENTOR_PATH . 'modules/' );
 define( 'ELEMENTOR_ASSETS_URL', ELEMENTOR_URL . 'assets/' );
 
 add_action( 'plugins_loaded', 'elementor_load_plugin_textdomain' );
 
 if ( ! version_compare( PHP_VERSION, '5.4', '>=' ) ) {
-	add_action( 'admin_notices', 'elementor_fail_php_version' );
+    add_action( 'admin_notices', 'elementor_fail_php_version' );
 } elseif ( ! version_compare( get_bloginfo( 'version' ), '4.6', '>=' ) ) {
-	add_action( 'admin_notices', 'elementor_fail_wp_version' );
+    add_action( 'admin_notices', 'elementor_fail_wp_version' );
 } else {
-	require( ELEMENTOR_PATH . 'includes/plugin.php' );
+    require( ELEMENTOR_PATH . 'includes/plugin.php' );
 }
 
 /**

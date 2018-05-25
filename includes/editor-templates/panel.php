@@ -26,7 +26,7 @@ $document = Plugin::$instance->documents->get( $this->get_post_id() );
 	<div id="elementor-panel-page-menu-footer">
 		<a href="<?php echo esc_url( $document->get_exit_to_dashboard_url() ); ?>" id="elementor-panel-exit-to-dashboard" class="elementor-button elementor-button-default">
 			<i class="fa fa-wordpress"></i>
-			<?php echo __( 'Exit To Dashboard', 'elementor' ); ?>
+			<?php echo __( 'Exit', 'elementor' ); ?>
 		</a>
 	</div>
 </script>

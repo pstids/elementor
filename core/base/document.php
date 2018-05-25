@@ -164,7 +164,7 @@ abstract class Document extends Controls_Stack {
 	 * @access public
 	 */
 	public function get_exit_to_dashboard_url() {
-		$url = get_edit_post_link( $this->get_main_id(), 'raw' );
+	    $url = $this->get_permalink();
 
 		/**
 		 * Document "exit to dashboard" URL.
